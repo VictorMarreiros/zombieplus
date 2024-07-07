@@ -15,7 +15,6 @@ test('deve logar como administrador', async ({ page }) => {
 
     await loginPage.submit('admin@zombieplus.com', 'pwd123')
     await loginPage.isLoggedIn()
-
 })
 
 test('não deve logar com senha incorreta', async ({ page }) => {
@@ -25,5 +24,18 @@ test('não deve logar com senha incorreta', async ({ page }) => {
     
     const message = 'Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.'
     await toast.haveText(message)
+})
 
+test('não deve logar com email em branco', async ({ page }) => {
+    await loginPage.visit()
+    await loginPage.submit('', 'abc123')
+    
+    await loginPage.alertEmailHaveText('Campo obrigatório')
+})
+
+test('não deve logar com sehna em branco', async ({ page }) => {
+    await loginPage.visit()
+    await loginPage.submit('admin@zombieplus.com', '')
+    
+    await loginPage.alertPwdHaveText('Campo obrigatório')
 })
