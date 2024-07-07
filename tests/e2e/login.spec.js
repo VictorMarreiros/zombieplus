@@ -46,3 +46,10 @@ test('CT-05: não deve logar com email e senha em branco', async ({ page }) => {
     
     await loginPage.alertHaveText(['Campo obrigatório', 'Campo obrigatório'])
 })
+
+test('CT-06: não deve logar com email incorreto', async ({ page }) => {
+    await loginPage.visit()
+    await loginPage.submit('abc.com.br', 'abc123')
+    
+    await loginPage.alertHaveText('Email incorreto')
+})
