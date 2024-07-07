@@ -26,7 +26,7 @@ export class LoginPage {
         await expect(this.page).toHaveURL(/.*movies/)
     }
 
-    async toastHaveText(message) {
+    async haveText(message) {
         const toast = this.page.locator('.toast')
 
         await expect(toast).toHaveText(message)
