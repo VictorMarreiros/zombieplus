@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
   toast = new Toast(page)
 })
 
-test('deve cadastrar um lead na lista de espera', async ({ page }) => {
+test('CT-01: deve cadastrar um lead na lista de espera', async ({ page }) => {
 
   const leadName = faker.person.fullName(); // Rowan Nikolaus
   const leadEmail = faker.internet.email(); // Kassandra.Haley@erich.biz
@@ -25,7 +25,7 @@ test('deve cadastrar um lead na lista de espera', async ({ page }) => {
   await toast.haveText(message)
 });
 
-test('não deve cadastrar um lead com formato de email incorreto', async ({ page }) => {
+test('CT-02: não deve cadastrar um lead com formato de email incorreto', async ({ page }) => {
 
   await landingPage.visit()
   await landingPage.openLeadModal()
@@ -40,7 +40,7 @@ test('não deve cadastrar um lead com formato de email incorreto', async ({ page
 });
 
 
-test('não deve cadastrar um lead com nome em branco', async ({ page }) => {
+test('CT-03: não deve cadastrar um lead com nome em branco', async ({ page }) => {
 
   await landingPage.visit()
   await landingPage.openLeadModal()
@@ -54,7 +54,7 @@ test('não deve cadastrar um lead com nome em branco', async ({ page }) => {
   await page.waitForTimeout(10000)
 });
 
-test('não deve cadastrar um lead com email em branco', async ({ page }) => {
+test('CT-04: não deve cadastrar um lead com email em branco', async ({ page }) => {
 
   await landingPage.visit()
   await landingPage.openLeadModal()
@@ -68,7 +68,7 @@ test('não deve cadastrar um lead com email em branco', async ({ page }) => {
   await page.waitForTimeout(10000)
 });
 
-test('não deve cadastrar um lead com nome e email em branco', async ({ page }) => {
+test('CT-05: não deve cadastrar um lead com nome e email em branco', async ({ page }) => {
 
   await landingPage.visit()
   await landingPage.openLeadModal()
