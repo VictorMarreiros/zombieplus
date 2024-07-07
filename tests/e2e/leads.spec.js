@@ -1,6 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-const { LandingPage } = require('./pages/LandingPage')
+const { LandingPage } = require('../pages/LandingPage')
 
 let landingPage
 
@@ -9,7 +9,7 @@ test.beforeEach(async ({page}) => {
 })
 
 test('deve cadastrar um lead na lista de espera', async ({ page }) => {
-
+  
   await landingPage.visit()
   await landingPage.openLeadModal()
   await landingPage.submitLeadForm('Test Victor 1', 'test.vtest@gmail.com')
