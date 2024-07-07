@@ -84,3 +84,20 @@ test('não deve cadastrar um lead com email em branco', async ({ page }) => {
 
   await page.waitForTimeout(10000)
 });
+
+test('não deve cadastrar um lead com nome e email em branco', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+
+  await page.click('//button[text()="Aperte o play... se tiver coragem"]')
+
+  await expect(
+    page.getByTestId('modal').getByRole('heading')
+  ).toHaveText('Fila de espera')
+
+  await page.getByTestId('modal')
+  .getByText('Quero entrar na fila!').click()
+
+  await expect(page.getByTestId('modal').locator('.alert')).toHaveText(['Campo obrigatório', 'Campo obrigatório'])
+
+  await page.waitForTimeout(10000)
+});
