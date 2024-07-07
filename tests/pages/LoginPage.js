@@ -33,13 +33,8 @@ export class LoginPage {
         await expect(toast).not.toBeVisible({timeout: 5000})
     }
 
-    async alertEmailHaveText(text) {
-        const alert = this.page.locator('.email-alert')
-        await expect(alert).toHaveText(text)
-    }
-
-    async alertPwdHaveText(text) {
-        const alert = this.page.locator('.password-alert')
+    async alertHaveText(text) {
+        const alert = this.page.locator('span[class$=alert]')
         await expect(alert).toHaveText(text)
     }
 
