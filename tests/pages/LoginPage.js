@@ -1,5 +1,4 @@
 const { expect } = require('@playwright/test')
-
 export class LoginPage {
 
     constructor(page) {
@@ -19,11 +18,6 @@ export class LoginPage {
         await this.page.getByPlaceholder('Senha').fill(senha)
         await this.page.getByText('Entrar').click()
 
-    }
-
-    async isLoggedIn() {
-        await this.page.waitForLoadState('networkidle', { timeout: 5000 })
-        await expect(this.page).toHaveURL(/.*movies/)
     }
 
     async haveText(message) {
