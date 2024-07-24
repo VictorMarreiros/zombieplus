@@ -1,3 +1,7 @@
+*.html
+
+
+### GITHUB STANDARD FOR NODE
 # Logs
 logs
 *.log

@@ -21,9 +21,9 @@ export class LandingPage {
     async submitLeadForm(name, email) {
         await this.page.getByPlaceholder('Informe seu nome').fill(name)
         await this.page.getByPlaceholder('Informe seu email').fill(email)
-      
+
         await this.page.getByTestId('modal')
-          .getByText('Quero entrar na fila!').click()
+            .getByText('Quero entrar na fila!').click()
     }
 
     async alertHaveText(target) {
